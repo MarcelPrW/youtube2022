@@ -17,7 +17,7 @@ const Categories = () => {
   return (
     <div className="categories">
       {data.map((item) => (
-        <Link className="link" to={`/products/${item.link}`}>
+        <Link className="link" to={`/produkty/${item.link}`}>
           {item.name}
           <br />
         </Link>
