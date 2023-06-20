@@ -37,15 +37,18 @@ const Cart = () => {
   };
   return (
     <div className="cart">
-      <h1>Products in your cart</h1>
+      <h1>Produkty w twoim koszyku</h1>
       {products?.map((item) => (
         <div className="item" key={item.id}>
-          <img src={process.env.REACT_APP_UPLOAD_URL + item.img} alt="" />
+          <img
+            src={import.meta.env.VITE_REACT_APP_UPLOAD_URL + item.img}
+            alt=""
+          />
           <div className="details">
             <h1>{item.title}</h1>
             <p>{item.desc?.substring(0, 100)}</p>
             <div className="price">
-              {item.quantity} x ${item.price}
+              {item.quantity} x PLN{item.price}
             </div>
           </div>
           <DeleteOutlinedIcon
@@ -55,12 +58,12 @@ const Cart = () => {
         </div>
       ))}
       <div className="total">
-        <span>SUBTOTAL</span>
-        <span>${totalPrice()}</span>
+        <span>Łącznie</span>
+        <span>PLN{totalPrice()}</span>
       </div>
-      <button onClick={handlePayment}>PROCEED TO CHECKOUT</button>
+      <button onClick={handlePayment}>Przejdź do podsumowania</button>
       <span className="reset" onClick={() => dispatch(resetCart())}>
-        Reset Cart
+        Zresetuj koszyk
       </span>
     </div>
   );

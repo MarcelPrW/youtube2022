@@ -1,15 +1,15 @@
 import React from "react";
 import Banner from "../../components/Banner/Banner";
 import FeaturedProducts from "../../components/FeaturedProducts/FeaturedProducts";
-//import Contact from "../../"
+import Contact from "../../components/Contact/Contact";
 
 const Home = () => {
   return (
     <div>
       <Banner />
-      <FeaturedProducts type="featured" />
+      <FeaturedProducts type="Nowe" />
       {/* <Categories /> */}
-      <FeaturedProducts type="trending" />
+      <FeaturedProducts type="Popularne" />
       <Contact />
     </div>
   );

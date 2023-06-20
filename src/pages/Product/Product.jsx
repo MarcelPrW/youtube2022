@@ -20,14 +20,14 @@ const Product = () => {
   return (
     <div className="product">
       {loading ? (
-        "loading"
+        "ładowanie"
       ) : (
         <>
           <div className="left">
             <div className="images">
               <img
                 src={
-                  process.env.REACT_APP_UPLOAD_URL +
+                  import.meta.env.VITE_REACT_APP_UPLOAD_URL +
                   data?.attributes?.img?.data?.attributes?.url
                 }
                 alt=""
@@ -35,7 +35,7 @@ const Product = () => {
               />
               <img
                 src={
-                  process.env.REACT_APP_UPLOAD_URL +
+                  import.meta.env.VITE_REACT_APP_UPLOAD_URL +
                   data?.attributes?.img2?.data?.attributes?.url
                 }
                 alt=""
@@ -45,7 +45,7 @@ const Product = () => {
             <div className="mainImg">
               <img
                 src={
-                  process.env.REACT_APP_UPLOAD_URL +
+                  import.meta.env.VITE_REACT_APP_UPLOAD_URL +
                   data?.attributes[selectedImg]?.data?.attributes?.url
                 }
                 alt=""
@@ -82,26 +82,27 @@ const Product = () => {
                 )
               }
             >
-              <AddShoppingCartIcon /> ADD TO CART
+              <AddShoppingCartIcon /> Dodaj do koszyka
             </button>
             <div className="links">
               <div className="item">
-                <FavoriteBorderIcon /> ADD TO WISH LIST
+                <FavoriteBorderIcon /> Dodaj do listy życzeń
               </div>
               <div className="item">
-                <BalanceIcon /> ADD TO COMPARE
+                <BalanceIcon /> Dodaj do porównania
               </div>
             </div>
             <div className="info">
-              <span>Vendor: Polo</span>
-              <span>Product Type: T-Shirt</span>
+              {/* do uzupełnienia () */}
+              <span>Sprzedawca: Intex</span>
+              <span>Typ produktu: ponton</span>
               <span>Tag: T-Shirt, Women, Top</span>
             </div>
             <hr />
             <div className="info">
-              <span>DESCRIPTION</span>
+              <span>Opis</span>
               <hr />
-              <span>ADDITIONAL INFORMATION</span>
+              <span>Dodatkowe informacje</span>
               <hr />
               <span>FAQ</span>
             </div>

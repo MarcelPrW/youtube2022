@@ -4,17 +4,23 @@ import Product from "./pages/Product/Product";
 import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import { store, persistor } from "./redux/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 import "./app.scss";
+import { Provider } from "react-redux";
 
 const Layout = () => {
   return (
-    <div className="app">
-      <Navbar />
-      <Outlet />
-      <Home />
-      <Footer />
-    </div>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <div className="app">
+          <Navbar />
+          <Outlet />
+          <Footer />
+        </div>
+      </PersistGate>
+    </Provider>
   );
 };
 
@@ -28,11 +34,11 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/products/:id",
+        path: "/produkty/:id",
         element: <Products />,
       },
       {
-        path: "/product/:id",
+        path: "/produkt/:id",
         element: <Product />,
       },
     ],

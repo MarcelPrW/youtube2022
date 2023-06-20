@@ -6,6 +6,7 @@
   .left {
     flex: 1;
     display: flex;
+    gap: 20px;
     .images {
       flex: 1;
 
@@ -35,8 +36,7 @@
 
     .price {
       font-size: 30px;
-      // ten niebieski kolor z motywu przewodniego
-      color: #1020df;
+      color: #2879fe;
       font-weight: 500;
     }
 
@@ -65,8 +65,7 @@
     .add {
       width: 250px;
       padding: 10px;
-      // theme color
-      background-color: #fff;
+      background-color: #2879fe;
       color: white;
       display: flex;
       align-items: center;
@@ -85,9 +84,8 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        color: #2879fe;
         font-size: 14px;
-        //mortw przewodni
-        color: #123;
       }
     }
 
@@ -101,11 +99,12 @@
 
       hr {
         width: 200px;
-        border: 1px solid lightgray;
+        border: 1px solid rgb(238, 237, 237);
       }
     }
+
     hr {
-      border: 1px solid lightgray;
+      border: 1px solid rgb(238, 237, 237);
     }
   }
 }

@@ -13,7 +13,7 @@ const List = ({ subCats, maxPrice, sort, catId }) => {
   return (
     <div className="list">
       {loading
-        ? "loading"
+        ? "ładowanie"
         : data?.map((item) => <Card item={item} key={item.id} />)}
     </div>
   );

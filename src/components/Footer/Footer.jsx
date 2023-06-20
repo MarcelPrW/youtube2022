@@ -8,17 +8,17 @@ const Footer = () => {
         <div className="item">
           <h1>Kategorie</h1>
           <span>Pontony</span>
-          <span>kategoria2</span>
-          <span>kategoria3</span>
-          <span>kategoria4</span>
-          <span>kategoria5</span>
+          <span>Baseny</span>
+          <span>Piłki</span>
+          <span>Koła</span>
+          <span>Materace</span>
         </div>
         <div className="item">
           <h1>Linki</h1>
           <span>Pages</span>
           <span>Stores</span>
           <span>Compare</span>
-          <span>Cookies</span>
+          <span>Pliki cookies</span>
         </div>
         <div className="item">
           <h1>O nas</h1>
@@ -41,7 +41,7 @@ const Footer = () => {
       </div>
       <div className="bottom">
         <div className="left">
-          <span className="logo">Lamastore</span>
+          <span className="logo">Wakacyjna torba </span>
           <span className="copyright">
             © Copyright 2023. Wszystkie prawa zastrzeżone
           </span>

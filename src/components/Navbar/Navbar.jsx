@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import Cart from "../Cart/Cart";
 import Categories from "../Categories/Categories";
 import "./Navbar.scss";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);

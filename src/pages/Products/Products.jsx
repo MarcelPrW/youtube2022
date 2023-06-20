@@ -30,7 +30,7 @@ const Products = () => {
     <div className="products">
       <div className="left">
         <div className="filterItem">
-          <h2>Product Categories</h2>
+          <h2>Kategorie produktów</h2>
           {data?.map((item) => (
             <div className="inputItem" key={item.id}>
               <input
@@ -44,7 +44,7 @@ const Products = () => {
           ))}
         </div>
         <div className="filterItem">
-          <h2>Filter by price</h2>
+          <h2>Filtruj po cenie</h2>
           <div className="inputItem">
             <span>0</span>
             <input
@@ -57,7 +57,7 @@ const Products = () => {
           </div>
         </div>
         <div className="filterItem">
-          <h2>Sort by</h2>
+          <h2>Sortuj</h2>
           <div className="inputItem">
             <input
               type="radio"
@@ -66,7 +66,7 @@ const Products = () => {
               name="price"
               onChange={(e) => setSort("asc")}
             />
-            <label htmlFor="asc">Price (Lowest first)</label>
+            <label htmlFor="asc">Od najtańszych</label>
           </div>
           <div className="inputItem">
             <input
@@ -76,7 +76,7 @@ const Products = () => {
               name="price"
               onChange={(e) => setSort("desc")}
             />
-            <label htmlFor="desc">Price (Highest first)</label>
+            <label htmlFor="desc">Od najdroższych</label>
           </div>
         </div>
       </div>
