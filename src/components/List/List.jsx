@@ -5,9 +5,11 @@ import useFetch from "../../hooks/useFetch";
 
 const List = ({ subCats, maxPrice, sort, catId }) => {
   const { data, loading, error } = useFetch(
-    `/products?populate=*&[filters][categories][id]=${catId}${subCats.map(
-      (item) => `&[filters][sub_categories][id][$eq]=${item}`
-    )}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}`
+    `/products?populate=*&filters[categories][title][$in][0]=${catId}&filters[price][$lte]=${maxPrice}&sort=price:${sort}`
+    // ${subCats.map(
+    //   (item) => `&filters[sub_categories][id][$eq]=${item}`
+    // )}&filters[price][$lte]=${maxPrice}&sort=price:${sort}`
+    // sort[0]=title
   );
 
   return (

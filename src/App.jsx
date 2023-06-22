@@ -9,6 +9,7 @@ import { PersistGate } from "redux-persist/integration/react";
 
 import "./app.scss";
 import { Provider } from "react-redux";
+import Categories from "./components/CategoriesPrompt/CategoriesPrompt";
 
 const Layout = () => {
   return (
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/produkty/:id",
+        path: "/produkty/:category",
         element: <Products />,
       },
       {

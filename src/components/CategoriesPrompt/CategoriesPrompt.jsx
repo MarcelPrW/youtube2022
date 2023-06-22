@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Categories.scss";
+import "./CategoriesPrompt.scss";
 
 const Categories = () => {
   const data = [
@@ -15,14 +15,16 @@ const Categories = () => {
   ];
 
   return (
-    <div className="categories">
-      {data.map((item) => (
-        <Link className="link" to={`/produkty/${item.link}`}>
-          {item.name}
-          <br />
-        </Link>
-      ))}
-    </div>
+    <React.Fragment>
+      <div className="categories">
+        {data.map((item) => (
+          <Link className="link" to={`/produkty/${item.link}`}>
+            {item.name}
+            <br />
+          </Link>
+        ))}
+      </div>
+    </React.Fragment>
   );
 };
 

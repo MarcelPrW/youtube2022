@@ -8,7 +8,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import LogoImg from "../../../img/logo.png";
 import { Link } from "react-router-dom";
 import Cart from "../Cart/Cart";
-import Categories from "../Categories/Categories";
+import Categories from "../CategoriesPrompt/CategoriesPrompt";
 import "./Navbar.scss";
 import { useSelector } from "react-redux";
 
