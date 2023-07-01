@@ -8,19 +8,14 @@ import urlBanner from "../../../img/baneryKategorii/PONTONY.png";
 
 const Products = () => {
   const catId = useParams().category;
-  console.log(catId);
-  // console.log("Category id -");
-  // console.log(catId);
-  const [maxPrice, setMaxPrice] = useState(1000);
-  const [sort, setSort] = useState(null);
-  const [selectedSubCats, setSelectedSubCats] = useState([]);
 
+  const [maxPrice, setMaxPrice] = useState(1000);
+  const [sort, setSort] = useState("asc");
+  const [selectedSubCats, setSelectedSubCats] = useState([]);
+  const [inputPrice, setInputPrice] = useState(1000);
   const { data, loading, error } = useFetch(
     `/sub-categories?[filters][categories][title][$eqi]=${catId}`
   );
-  // console.log(
-  //   useFetch(`/sub-categories?[filters][categories][title][$eqi]=${catId}`)
-  // );
   const handleChange = (e) => {
     const value = e.target.value;
     const isChecked = e.target.checked;
@@ -32,11 +27,13 @@ const Products = () => {
     );
   };
 
+  const handleConfirmButton = () => {
+    setMaxPrice(inputPrice);
+  };
   return (
     <div className="products">
       <div className="left">
         <div className="filterItem">
-          {/* <h2>Kategorie produktów</h2> */}
           {data?.map((item) => (
             <div className="inputItem" key={item.id}>
               <input
@@ -57,10 +54,11 @@ const Products = () => {
               type="range"
               min={0}
               max={1000}
-              onChange={(e) => setMaxPrice(e.target.value)}
+              onChange={(e) => setInputPrice(e.target.value)}
             />
-            <span>{maxPrice}</span>
+            <span>{inputPrice}</span>
           </div>
+          <button onClick={handleConfirmButton}>Zatwierdź</button>
         </div>
         <div className="filterItem">
           <h2>Sortuj</h2>
