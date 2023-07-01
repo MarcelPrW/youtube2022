@@ -38,20 +38,10 @@ const Navbar = () => {
         {/* Logo here */}
         <div className="center">
           <Link className="link" to="/">
-            <img src={LogoImg} alt="" />
+            <img className="logo" src={LogoImg} alt="" />
           </Link>
         </div>
         <div className="right">
-          <div className="item">
-            <Link className="link" to="/">
-              O nas
-            </Link>
-          </div>
-          <div className="item">
-            <Link className="link" to="/">
-              Kontakt
-            </Link>
-          </div>
           <div className="icons">
             <SearchIcon />
             <PersonOutlineOutlinedIcon />

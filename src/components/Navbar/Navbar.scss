@@ -43,14 +43,15 @@
 
     .center {
       font-size: 2vw;
-
-      .link {
-        img {
-          position: absolute;
-          width: 10%;
-          margin-top: -3.5%;
-          margin-left: -4%;
-        }
+      .logo {
+        position: absolute;
+        justify-content: center;
+        width: 8%;
+        margin-top: -2.5%;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
       }
     }
 

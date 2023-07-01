@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Cart.scss";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import { useSelector } from "react-redux";
@@ -6,10 +6,16 @@ import { removeItem, resetCart } from "../../redux/cartReducer";
 import { useDispatch } from "react-redux";
 import { makeRequest } from "../../makeRequest";
 import { loadStripe } from "@stripe/stripe-js";
+import { Alert } from "@mui/material";
 
 const Cart = () => {
   const products = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
+  const [alert, setAlert] = useState(false);
+
+  const resetCartFunction = () => {
+    dispatch(resetCart());
+  };
 
   const totalPrice = () => {
     let total = 0;
@@ -37,7 +43,16 @@ const Cart = () => {
   };
   return (
     <div className="cart">
-      <h1>Produkty w twoim koszyku</h1>
+      {alert ? (
+        <Alert severity="success" className="removeFromCartAlert" icon={false}>
+          Usunięto z koszyka
+        </Alert>
+      ) : null}
+      <h1>
+        {products.length == 0
+          ? "Brak produktów w koszyku"
+          : "Produkty w twoim koszyku"}
+      </h1>
       {products?.map((item) => (
         <div className="item" key={item.id}>
           <img
@@ -48,21 +63,27 @@ const Cart = () => {
             <h1>{item.title}</h1>
             <p>{item.desc?.substring(0, 100)}</p>
             <div className="price">
-              {item.quantity} x PLN{item.price}
+              {item.quantity} x {item.price} zł
             </div>
           </div>
           <DeleteOutlinedIcon
             className="delete"
-            onClick={() => dispatch(removeItem(item.id))}
+            onClick={() => (
+              dispatch(removeItem(item.id)),
+              setAlert(true),
+              setTimeout(() => {
+                setAlert(false);
+              }, 2000)
+            )}
           />
         </div>
       ))}
       <div className="total">
         <span>Łącznie</span>
-        <span>PLN{totalPrice()}</span>
+        <span>{totalPrice()} zł</span>
       </div>
       <button onClick={handlePayment}>Przejdź do podsumowania</button>
-      <span className="reset" onClick={() => dispatch(resetCart())}>
+      <span className="reset" onClick={resetCartFunction}>
         Zresetuj koszyk
       </span>
     </div>

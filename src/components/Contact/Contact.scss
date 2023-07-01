@@ -1,3 +1,24 @@
+.alert {
+  position: absolute;
+  width: 250px;
+  padding: 10px;
+  background-color: #2879fe;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: none;
+  font-weight: 500;
+  transition: 0.3s;
+  box-shadow: 0px 0px 7px 0px rgba(31, 144, 250, 0.71);
+}
+.alert:hover {
+  box-shadow: 0px 0px 17px 0px rgba(31, 144, 250, 0.71);
+}
+.alert:active {
+  box-shadow: 0px 0px 7px 0px rgba(31, 144, 250, 1);
+}
 .contact {
   background-color: #2879fe;
   color: white;

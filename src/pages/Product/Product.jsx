@@ -8,15 +8,34 @@ import useFetch from "../../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cartReducer";
+import { Alert } from "@mui/material";
 
 const Product = () => {
   const id = useParams().id;
   const [selectedImg, setSelectedImg] = useState("img");
   const [quantity, setQuantity] = useState(1);
+  const [alert, setAlert] = useState(false);
 
   const dispatch = useDispatch();
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
 
+  const handleAddToCartButton = () => {
+    dispatch(
+      addToCart({
+        id: data.id,
+        title: data.attributes.title,
+        desc: data.attributes.desc,
+        price: data.attributes.price,
+        img: data.attributes.img.data.attributes.url,
+        quantity,
+      }),
+
+      setAlert(true),
+      setTimeout(() => {
+        setAlert(false);
+      }, 2000)
+    );
+  };
   return (
     <div className="product">
       {loading ? (
@@ -54,7 +73,8 @@ const Product = () => {
           </div>
           <div className="right">
             <h1>{data?.attributes?.title}</h1>
-            <span className="price">${data?.attributes?.price}</span>
+            <span className="price">{data?.attributes?.price} zł</span>
+            {console.log(data?.attributes?.price)}
             <p>{data?.attributes?.desc}</p>
             <div className="quantity">
               <button
@@ -67,23 +87,15 @@ const Product = () => {
               {quantity}
               <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
             </div>
-            <button
-              className="add"
-              onClick={() =>
-                dispatch(
-                  addToCart({
-                    id: data.id,
-                    title: data.attributes.title,
-                    desc: data.attributes.desc,
-                    price: data.attributes.price,
-                    img: data.attributes.img.data.attributes.url,
-                    quantity,
-                  })
-                )
-              }
-            >
+            <button className="add" onClick={handleAddToCartButton}>
               <AddShoppingCartIcon /> Dodaj do koszyka
             </button>
+            {alert ? (
+              <Alert severity="success" className="addToCartAlert" icon={false}>
+                Dodano do koszyka!
+              </Alert>
+            ) : null}
+
             <div className="links">
               <div className="item">
                 <FavoriteBorderIcon /> Dodaj do listy życzeń
@@ -92,19 +104,30 @@ const Product = () => {
                 <BalanceIcon /> Dodaj do porównania
               </div>
             </div>
-            <div className="info">
-              {/* do uzupełnienia () */}
-              <span>Sprzedawca: Intex</span>
-              <span>Typ produktu: ponton</span>
-              <span>Tag: T-Shirt, Women, Top</span>
-            </div>
+
             <hr />
             <div className="info">
-              <span>Opis</span>
-              <hr />
-              <span>Dodatkowe informacje</span>
-              <hr />
-              <span>FAQ</span>
+              <div>
+                Długi opis o produkcie Lorem ipsum dolor, sit amet consectetur
+                adipisicing elit. Dolorem ea praesentium quos ullam eum corporis
+                doloremque blanditiis! Animi placeat at nesciunt atque ratione.
+                Molestiae, deserunt. Perferendis libero necessitatibus rerum
+                aspernatur, temporibus sequi. Quo sequi esse suscipit, ab at
+                magni non deserunt tempora? Unde, neque ullam totam at fugit
+                odit excepturi, voluptas, dicta ipsa eos molestias. Ipsam
+                incidunt repellat architecto enim quae quos dicta blanditiis
+                libero cumque facere! Aut quasi eveniet omnis reprehenderit illo
+                asperiores maiores inventore provident nihil, hic, ea doloremque
+                sequi fugit aspernatur illum facere neque eaque! Doloribus quis
+                ipsa magni magnam laudantium eos minus explicabo nemo. Provident
+                eligendi necessitatibus, dolorum nulla molestiae fugiat
+                delectus, hic totam minus distinctio, voluptas id facilis iusto
+                eaque magnam accusantium quia dolore exercitationem iste. Facere
+                nesciunt nobis autem voluptatem sit officiis, voluptas placeat
+                eius iure exercitationem eum maiores, quibusdam cupiditate,
+                beatae architecto unde. Veritatis, explicabo delectus. Ipsam
+                atque quia veniam, illum vero rem!
+              </div>
             </div>
           </div>
         </>

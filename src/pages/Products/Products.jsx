@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import List from "../../components/List/List";
 import useFetch from "../../hooks/useFetch";
 import "./Products.scss";
-import urlBanner from "../../../img/baneryKategorii/PONTONY.png";
 
 const Products = () => {
   const catId = useParams().category;
@@ -85,7 +84,16 @@ const Products = () => {
         </div>
       </div>
       <div className="right">
-        <img className="catImg" url={urlBanner} alt="baner kategorii" />
+        {/* tutaj banner url={urlBanner} */}
+        <img
+          className="catImg"
+          src={
+            import.meta.env.VITE_REACT_APP_UPLOAD_URL +
+            catId.attributes?.img?.data?.attributes?.url
+          }
+           alt="baner kategorii"
+        />
+
         <List
           catId={catId}
           maxPrice={maxPrice}

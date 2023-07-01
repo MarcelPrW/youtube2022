@@ -5,11 +5,9 @@ import "./CategoriesPrompt.scss";
 const Categories = () => {
   const data = [
     { name: "Pontony", link: "pontony" },
-    // { name: "Gry logiczne", link: "gry-logiczne" },
     { name: "Baseny", link: "baseny" },
     { name: "Piłki", link: "pilki" },
     { name: "Koła", link: "kola" },
-    // Zamiast materace -> pontony?
     { name: "Materace", link: "materace" },
     { name: "Nauka pływania", link: "nauka-plywania" },
   ];

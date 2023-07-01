@@ -2,7 +2,7 @@
   padding: 20px 50px;
   display: flex;
   gap: 50px;
-
+  margin-top: 2%;
   .left {
     flex: 1;
     display: flex;
@@ -16,6 +16,10 @@
         object-fit: cover;
         cursor: pointer;
         margin-bottom: 10px;
+        // box-shadow: 0px 0px 7px -1px rgba(79, 79, 79, 0.82);
+      }
+      img:hover {
+        border: 1px solid black;
       }
     }
     .mainImg {
@@ -24,6 +28,8 @@
       img {
         width: 100%;
         max-height: 800px;
+        box-shadow: 0px 0px 7px -1px rgba(189, 189, 189, 0.87);
+
         object-fit: cover;
       }
     }
@@ -59,6 +65,7 @@
         justify-content: center;
         cursor: pointer;
         border: none;
+        box-shadow: 0px 0px 2px 0px rgba(79, 79, 79, 0.82);
       }
     }
 
@@ -74,6 +81,30 @@
       cursor: pointer;
       border: none;
       font-weight: 500;
+      transition: 0.3s;
+      box-shadow: 0px 0px 7px 0px rgba(31, 144, 250, 0.71);
+    }
+    .add:hover {
+      box-shadow: 0px 0px 17px 0px rgba(31, 144, 250, 0.71);
+    }
+    .add:active {
+      box-shadow: 0px 0px 7px 0px rgba(31, 144, 250, 1);
+    }
+
+    .addToCartAlert {
+      width: 13%;
+      height: 35px;
+      background-color: #5595fc;
+      color: white;
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      justify-content: center;
+      border-radius: 6px;
+      margin-top: -2%;
+      box-shadow: 0px 0px 13px -2px rgba(0, 0, 0, 0.44);
     }
 
     .links {
@@ -90,17 +121,17 @@
     }
 
     .info {
-      display: flex;
-      flex-direction: column;
+      // Wysrodkowac ten element w normalny sposob
       gap: 10px;
-      color: gray;
       font-size: 14px;
-      margin-top: 30px;
+      margin-top: 25%;
+      margin-left: -45%;
+      width: 90%;
 
-      hr {
-        width: 200px;
-        border: 1px solid rgb(238, 237, 237);
-      }
+      // hr {
+      //   width: 200px;
+      //   border: 1px solid rgb(238, 237, 237);
+      // }
     }
 
     hr {
