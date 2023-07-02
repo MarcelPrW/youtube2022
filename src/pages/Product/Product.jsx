@@ -8,7 +8,7 @@ import useFetch from "../../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cartReducer";
-import { Alert } from "@mui/material";
+import ProAlert from "../../components/ProAlert/ProAlert";
 
 const Product = () => {
   const id = useParams().id;
@@ -28,13 +28,12 @@ const Product = () => {
         price: data.attributes.price,
         img: data.attributes.img.data.attributes.url,
         quantity,
-      }),
-
-      setAlert(true),
-      setTimeout(() => {
-        setAlert(false);
-      }, 2000)
+      })
     );
+    setAlert(true);
+    setTimeout(() => {
+      setAlert(false);
+    }, 2000);
   };
   return (
     <div className="product">
@@ -90,11 +89,7 @@ const Product = () => {
             <button className="add" onClick={handleAddToCartButton}>
               <AddShoppingCartIcon /> Dodaj do koszyka
             </button>
-            {alert ? (
-              <Alert severity="success" className="addToCartAlert" icon={false}>
-                Dodano do koszyka!
-              </Alert>
-            ) : null}
+            {alert ? <ProAlert header={"Dodano do koszyka!"}></ProAlert> : null}
 
             <div className="links">
               <div className="item">

@@ -91,7 +91,7 @@ const Products = () => {
             import.meta.env.VITE_REACT_APP_UPLOAD_URL +
             catId.attributes?.img?.data?.attributes?.url
           }
-           alt="baner kategorii"
+          alt="baner kategorii"
         />
 
         <List

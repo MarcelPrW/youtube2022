@@ -12,9 +12,14 @@ const Cart = () => {
   const products = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
   const [alert, setAlert] = useState(false);
+  const [cartResetAlert, setCartResetAlert] = useState(false);
 
   const resetCartFunction = () => {
     dispatch(resetCart());
+    setCartResetAlert(true);
+    setTimeout(() => {
+      setCartResetAlert(false);
+    }, 2000);
   };
 
   const totalPrice = () => {
@@ -48,6 +53,11 @@ const Cart = () => {
           Usunięto z koszyka
         </Alert>
       ) : null}
+      {/* {alert ? (
+        <Alert severity="success" className="removeFromCartAlert" icon={false}>
+          Usunięto z koszyka
+        </Alert>
+      ) : null} */}
       <h1>
         {products.length == 0
           ? "Brak produktów w koszyku"
